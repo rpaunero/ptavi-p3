@@ -10,7 +10,7 @@ class SmallSMILHandler(ContentHandler):
     def __init__(self):
 
         self.tags = []
-        self.dicc = {'root-layout': ['width', 'height', 'backgroundcolor'],
+        self.dicc = {'root-layout': ['width', 'height', 'background-color'],
                      'region': ['id', 'top', 'bottom', 'left', 'right'],
                      'img': ['src', 'region', 'begin', 'dur'],
                      'audio': ['src', 'begin', 'dur'],
