@@ -4,9 +4,10 @@
 from xml.sax import make_parser
 from xml.sax.handler import ContentHandler
 
+
 class SmallSMILHandler(ContentHandler):
 
-    def __init__ (self):
+    def __init__(self):
 
         self.tags = []
         self.dicc = {'root-layout': ['width', 'height', 'backgroundcolor'],
@@ -22,13 +23,12 @@ class SmallSMILHandler(ContentHandler):
         if name in self.dicc:
             tmpdic = {}
             for atributo in self.dicc[name]:
-                tmpdic[atributo] = attrs.get(atributo,"")
+                tmpdic[atributo] = attrs.get(atributo, "")
             self.tags.append([name, tmpdic])
-            
 
     def get_tags(self):
         return self.tags
-        
+
 
 if __name__ == "__main__":
     """
