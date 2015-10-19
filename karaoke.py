@@ -26,6 +26,7 @@ class KaraokeLocal():
             for atributo in dicc:
                 if dicc[atributo] != "":
                     linea = linea + "\t" + atributo + "=" + (dicc[atributo])
+            linea = linea + "\n"
         return (linea)
 
     def to_json(self, name):
@@ -35,7 +36,7 @@ class KaraokeLocal():
             name = name.split(".")[0] + ".json"
 #Pasar datos a formato json
         datosJson = json.dumps(self.misDatos)
-#Crear el nuevo fichero con los datos en el nuevo formato
+#Crear el nuevo fichero con los datos en el nuevo formato ('w' ---> Machaca el fichero anterior)
         with open(name, 'w') as ff:
             json.dump(datosJson, ff)
 
