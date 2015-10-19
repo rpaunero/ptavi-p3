@@ -26,6 +26,8 @@ class KaraokeLocal():
                     linea = linea + "\t" + atributo + "=" + (dicc[atributo] + " ")
         return (linea)
 
+    def to_json(self):
+
     def do_local(self):
         for sublista in self.misDatos:
             dicc = sublista[1]
