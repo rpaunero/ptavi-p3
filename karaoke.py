@@ -18,13 +18,13 @@ def __str__(misDatos):
                 linea = linea + "\t" + atributo + "=" + (dicc[atributo] + " ")
     print(linea)
 
-def do_local(misDatos)
+def do_local(misDatos):
     for sublista in misDatos:
         dicc = sublista[1]
         for atributo in dicc:
             if atributo == 'src':
                 if dicc[atributo] != "http://": 
-
+                    urllib.request.urlretrieve(dicc[atributo],dicc[atributo].split('/')[-1])
 
 
 if __name__ == "__main__":
