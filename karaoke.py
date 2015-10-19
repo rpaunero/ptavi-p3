@@ -15,31 +15,30 @@ class KaraokeLocal():
         parser = make_parser()
         cHandler = smallsmilhandler.SmallSMILHandler()
         parser.setContentHandler(cHandler)
-        parser.parse(open(fichero)) 
+        parser.parse(open(fichero))
         self.misDatos = cHandler.get_tags()
-    
+
     def __str__(self):
-        linea=''
+        linea = ''
         for sublista in self.misDatos:
             linea = linea + sublista[0]
             dicc = sublista[1]
-            for atributo in dicc:      
+            for atributo in dicc:
                 if dicc[atributo] != "":
-                    linea = linea + "\t" + atributo + "=" + (dicc[atributo] + " ")
+                    linea = linea + "\t" + atributo + "=" + (dicc[atributo])
         return (linea)
 
-    def to_json(self,name):
-        
+    def to_json(self, name):
         if name.split(".")[1] == "json":
-            name=name
+            name = name
         elif name.split(".")[1] != "json":
-           name = name.split(".")[0] +".json"
-#Pasar datos a formato json  
+            name = name.split(".")[0] + ".json"
+#Pasar datos a formato json
         datosJson = json.dumps(self.misDatos)
-#Crear el nuevo fichero con los datos en el nuevo formato     
-        with open(name,'w') as ff:
+#Crear el nuevo fichero con los datos en el nuevo formato
+        with open(name, 'w') as ff:
             json.dump(datosJson, ff)
-        
+
     def do_local(self):
         for sublista in self.misDatos:
             dicc = sublista[1]
@@ -48,7 +47,6 @@ class KaraokeLocal():
                     if dicc[atributo].split('/')[0] == "http:":
                         urllib.request.urlretrieve(dicc[atributo], dicc[atributo].split('/')[-1])
                         dicc[atributo] = dicc[atributo].split('/')[-1]
-
 
 if __name__ == "__main__":
     try:
