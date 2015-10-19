@@ -5,9 +5,10 @@ import sys
 from xml.sax import make_parser
 from xml.sax.handler import ContentHandler
 import smallsmilhandler
+import urllib
 
 
-def crearlinea(misDatos):
+def __str__(misDatos):
     linea=''
     for sublista in misDatos:
         linea = linea + sublista[0]
@@ -16,6 +17,15 @@ def crearlinea(misDatos):
             if dicc[atributo] != "":
                 linea = linea + "\t" + atributo + "=" + (dicc[atributo] + " ")
     print(linea)
+
+def do_local(misDatos)
+    for sublista in misDatos:
+        dicc = sublista[1]
+        for atributo in dicc:
+            if atributo == 'src':
+                if dicc[atributo] != "http://": 
+
+
 
 if __name__ == "__main__":
     try:
